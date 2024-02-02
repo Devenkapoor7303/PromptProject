@@ -56,6 +56,8 @@
   outline: none;
   border: white 1px solid;
   margin: 4%;
-  padding: 6%;
-  width: 200%;
+  padding: 3%;
+  font-size: large;
+  width: 50%;
+  text-align: center;
 }

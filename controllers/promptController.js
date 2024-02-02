@@ -14,6 +14,8 @@ export const getPromptMessage = async (req, res) => {
 
     const promptInfo = req.body;
 
+    console.log(promptInfo);
+
     const { data } = await axios.post(url, promptInfo, { headers });
     
     if (!data) {

@@ -18,13 +18,18 @@ const promptInput = () => {
         },
         {
           role: "user",
-          content: `${prompt}`,
+          content: "Give Short Information about Country {{Country}}",
         },
       ],
       model: {
         name: "openai/gpt-4-1106-preview",
       },
-      variables: [],
+      variables: [
+        {
+          name: "Country",
+          value: `${prompt}`,
+        },
+      ],
     };
     try {
       setLoading(true);
@@ -43,9 +48,10 @@ const promptInput = () => {
     if (!loading && !promptRes) {
       return (
         <>
+          <h1>Get Details of any Country</h1>
           <form className="form-row" onSubmit={handleSubmit}>
             <label htmlFor="prompt" className="form-label">
-              Enter Your Prompt
+              Enter Country Name
             </label>
             <input
               value={prompt}
@@ -55,7 +61,7 @@ const promptInput = () => {
               className="form-input"
               onChange={(e) => setPrompt(e.target.value)}
             />
-            <button className="form-btn">Submit Prompt</button>
+            <button className="form-btn">Submit Details</button>
           </form>
         </>
       );
@@ -63,7 +69,7 @@ const promptInput = () => {
     if (promptRes) {
       return (
         <>
-          <h1>Prompt Result</h1>
+          <h1>Result</h1>
           <p>{promptRes}</p>
         </>
       );
